@@ -1,0 +1,25 @@
+[workspace]
+authors = ["Wingerted <wingerted@gmail.com>"]
+channels = ["conda-forge", "https://repo.prefix.dev/cxxlibs"]
+name = "reflect-cpp"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+cmake = "*"
+ninja = "*"
+clang = "*"
+clangxx = "*"
+rattler-build = "*"
+ccache = "*"
+pkg-config = ">=0.29.2,<0.30"
+ctre = ">=3.9.0,<4"
+msgpack-c = ">=6.1.0,<7"
+flatbuffers = ">=25.1.21,<26"
+libbson = ">=1.23.2,<2"
+pugixml = ">=1.15,<2"
+yaml-cpp = ">=0.8.0,<0.9"
+yyjson = ">=0.10.0,<0.11"
+toml11 = ">=4.4.0,<5"

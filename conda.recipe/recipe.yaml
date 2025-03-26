@@ -1,0 +1,32 @@
+package:
+  name: reflect-cpp
+  version: 0.18.0
+
+source:
+  git: https://github.com/getml/reflect-cpp.git
+  tag: v0.18.0
+
+build:
+  script: ./build.sh
+
+requirements:
+  build:
+    - clang
+    - clangxx
+    - cmake
+    - ninja
+  run:
+    - ctre >=3.9.0,<4
+    - msgpack-c >=6.1.0,<7
+    - flatbuffers >=25.1.21,<26
+    - libbson >=1.23.2,<2
+    - pugixml >=1.15,<2
+    - yaml-cpp >=0.8.0,<0.9
+    - yyjson >=0.10.0,<0.11
+    - toml11 >=4.4.0,<5
+
+# 包的元数据
+about:
+  homepage: https://github.com/getml/reflect-cpp
+  license: MIT
+  summary: A modern C++ reflection library
