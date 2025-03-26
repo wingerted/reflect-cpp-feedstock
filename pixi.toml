@@ -3,7 +3,7 @@ authors = ["Wingerted <wingerted@gmail.com>"]
 channels = ["conda-forge", "https://repo.prefix.dev/cxxlibs"]
 name = "reflect-cpp"
 platforms = ["linux-64"]
-version = "0.1.0"
+version = "0.18.0"
 
 [tasks]
 
