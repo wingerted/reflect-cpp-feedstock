@@ -28,7 +28,7 @@ jobs:
       with:
         # needs to be unique for each matrix entry
         artifact-name: package-${{ matrix.target-platform }}
-        build-args: --target-platform ${{ matrix.target-platform }}${{ matrix.target-platform == 'linux-aarch64' && ' --no-test' || '' }}
+        build-args: -c conda-forge -c https://repo.prefix.dev/cxxlibs --target-platform ${{ matrix.target-platform }}${{ matrix.target-platform == 'linux-aarch64' && ' --no-test' || '' }}
     
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
