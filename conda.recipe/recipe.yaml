@@ -1,10 +1,15 @@
+context:
+  version: 0.21.0
+
 package:
   name: reflect-cpp
-  version: 0.18.0
+  version: ${{ version }}
 
 source:
   git: https://github.com/getml/reflect-cpp.git
-  tag: v0.18.0
+  tag: v${{ version }}
+  patches:
+    - fix_system_arrow_target.patch
 
 build:
   script: ./build.sh
@@ -15,6 +20,7 @@ requirements:
     - clangxx
     - cmake
     - ninja
+  host:
     - ctre >=3.9.0,<4
     - msgpack-c >=6.1.0,<7
     - flatbuffers >=25.1.21,<26
@@ -22,7 +28,8 @@ requirements:
     - pugixml >=1.15,<2
     - yaml-cpp >=0.8.0,<0.9
     - yyjson >=0.10.0,<0.11
-    - toml11 >=4.4.0,<5  
+    - tomlplusplus >=3.4.0,<4
+    - pyarrow >=21.0.0,<22
   run:
     - ctre >=3.9.0,<4
     - msgpack-c >=6.1.0,<7
@@ -31,7 +38,8 @@ requirements:
     - pugixml >=1.15,<2
     - yaml-cpp >=0.8.0,<0.9
     - yyjson >=0.10.0,<0.11
-    - toml11 >=4.4.0,<5
+    - tomlplusplus >=3.4.0,<4
+    - pyarrow >=21.0.0,<22
 
 # 包的元数据
 about:

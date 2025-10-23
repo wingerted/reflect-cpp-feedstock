@@ -1,0 +1,25 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a023b6f..38f00eb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -258,7 +258,7 @@ if (REFLECTCPP_CSV)
+     if (REFLECTCPP_USE_VCPKG)
+         target_link_libraries(reflectcpp PUBLIC "$<IF:$<BOOL:${ARROW_BUILD_STATIC}>,Arrow::arrow_static,Arrow::arrow_shared>")
+     else()
+-        target_link_libraries(reflectcpp PUBLIC "arrow::arrow")
++        target_link_libraries(reflectcpp PUBLIC "Arrow::arrow_shared")
+     endif()
+ endif ()
+ 
+@@ -293,7 +293,10 @@ if (REFLECTCPP_PARQUET)
+         target_link_libraries(reflectcpp PUBLIC "$<IF:$<BOOL:${ARROW_BUILD_STATIC}>,Arrow::arrow_static,Arrow::arrow_shared>")
+         target_link_libraries(reflectcpp PUBLIC "$<IF:$<BOOL:${ARROW_BUILD_STATIC}>,Parquet::parquet_static,Parquet::parquet_shared>")
+     else()
+-        target_link_libraries(reflectcpp PUBLIC "arrow::arrow")
++        if (NOT TARGET Parquet)
++            find_package(Parquet CONFIG REQUIRED)
++        endif()
++        target_link_libraries(reflectcpp PUBLIC Arrow::arrow_shared Parquet::parquet_shared)
+     endif()
+ endif ()
+ 

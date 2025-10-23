@@ -1,9 +1,9 @@
 [workspace]
 authors = ["Wingerted <wingerted@gmail.com>"]
-channels = ["conda-forge", "https://repo.prefix.dev/cxxlibs"]
+channels = ["https://repo.prefix.dev/cxxlibs", "conda-forge"]
 name = "reflect-cpp"
 platforms = ["linux-64"]
-version = "0.18.0"
+version = "0.21.0"
 
 [tasks]
 
@@ -22,4 +22,6 @@ libbson = ">=1.23.2,<2"
 pugixml = ">=1.15,<2"
 yaml-cpp = ">=0.8.0,<0.9"
 yyjson = ">=0.10.0,<0.11"
-toml11 = ">=4.4.0,<5"
+tomlplusplus = ">=3.4.0,<4"
+pyarrow = ">=21.0.0,<22"
+
