@@ -6,6 +6,19 @@ This is the feedstock for the [reflect-cpp](https://github.com/munich-data-engin
 
 reflect-cpp is a modern C++ reflection library that provides runtime reflection capabilities for C++ applications. It supports serialization/deserialization to various formats including JSON, YAML, TOML, XML, MessagePack, and FlatBuffers.
 
+## Installing with Pixi
+
+Use the following entries in your `pixi.toml` for Linux x86-64. Select `cxxlibs` explicitly for reflect-cpp so Pixi can resolve yyjson from `scns` while installing this build.
+
+```toml
+[workspace]
+channels = ["conda-forge", "https://repo.prefix.dev/scns", "https://repo.prefix.dev/cxxlibs"]
+platforms = ["linux-64"]
+
+[dependencies]
+reflect-cpp = { version = "==0.27.1", channel = "https://repo.prefix.dev/cxxlibs" }
+```
+
 ## Building from source
 
 Install the workspace dependencies with Pixi, then build and test reflect-cpp.
