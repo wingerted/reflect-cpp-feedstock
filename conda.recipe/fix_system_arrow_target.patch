@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index a023b6f..38f00eb 100644
+index aae2855..813dcc1 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -258,7 +258,7 @@ if (REFLECTCPP_CSV)
+@@ -379,7 +379,7 @@ if (REFLECTCPP_CSV OR REFLECTCPP_CHECK_HEADERS)
      if (REFLECTCPP_USE_VCPKG)
          target_link_libraries(reflectcpp PUBLIC "$<IF:$<BOOL:${ARROW_BUILD_STATIC}>,Arrow::arrow_static,Arrow::arrow_shared>")
      else()
@@ -11,7 +11,7 @@ index a023b6f..38f00eb 100644
      endif()
  endif ()
  
-@@ -293,7 +293,10 @@ if (REFLECTCPP_PARQUET)
+@@ -414,7 +414,10 @@ if (REFLECTCPP_PARQUET OR REFLECTCPP_CHECK_HEADERS)
          target_link_libraries(reflectcpp PUBLIC "$<IF:$<BOOL:${ARROW_BUILD_STATIC}>,Arrow::arrow_static,Arrow::arrow_shared>")
          target_link_libraries(reflectcpp PUBLIC "$<IF:$<BOOL:${ARROW_BUILD_STATIC}>,Parquet::parquet_static,Parquet::parquet_shared>")
      else()

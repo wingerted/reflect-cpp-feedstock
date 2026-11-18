@@ -7,6 +7,9 @@ set -x
 export CC="$BUILD_PREFIX/bin/clang"
 export CXX="$BUILD_PREFIX/bin/clang++"
 
+# Upstream installs every header under include/, even in external-dependency mode.
+rm -r "$SRC_DIR/include/rfl/thirdparty"
+
 mkdir -p build && cd build
 
 cmake ${CMAKE_ARGS} -GNinja \
@@ -14,7 +17,6 @@ cmake ${CMAKE_ARGS} -GNinja \
     -DCMAKE_INSTALL_PREFIX="$PREFIX" \
     -DCMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} -fpic" \
     -DREFLECTCPP_USE_BUNDLED_DEPENDENCIES=OFF \
-    -DREFLECTCPP_USE_VCPKG_DEFAULT=OFF \
     -DREFLECTCPP_USE_VCPKG=OFF \
     -DREFLECTCPP_FLEXBUFFERS=ON \
     -DREFLECTCPP_MSGPACK=ON \

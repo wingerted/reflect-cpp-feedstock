@@ -23,28 +23,37 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Build conda package
-      uses: prefix-dev/rattler-build-action@v0.2.30
+    - uses: prefix-dev/setup-pixi@v0.11.3
       with:
-        # needs to be unique for each matrix entry
-        artifact-name: package-${{ matrix.target-platform }}
-        build-args: -c conda-forge -c https://repo.prefix.dev/cxxlibs --target-platform ${{ matrix.target-platform }}${{ matrix.target-platform == 'linux-aarch64' && ' --no-test' || '' }}
+        pixi-version: v0.76.2
+        locked: true
+
+    - name: Build reflect-cpp
+      run: pixi run build --target-platform ${{ matrix.target-platform }}
+
+    - name: Test installed reflect-cpp
+      run: pixi run test
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: package-${{ matrix.target-platform }}
+        path: output/linux-64/reflect-cpp-*.conda
     
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          output/**/*.conda
+          output/linux-64/reflect-cpp-*.conda
         generate_release_notes: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       
-    - name: Upload all packages
+    - name: Upload reflect-cpp
       shell: bash
       # do not upload on PR
       if: github.event_name == 'push'
       run: |
         # uses trusted publishers for the upload
-        for file in output/**/*.conda; do
-          rattler-build upload prefix -c cxxlibs "$file"
+        for file in output/linux-64/reflect-cpp-*.conda; do
+          pixi run rattler-build upload prefix --skip-existing -c cxxlibs "$file"
         done

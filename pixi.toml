@@ -1,11 +1,14 @@
 [workspace]
 authors = ["Wingerted <wingerted@gmail.com>"]
-channels = ["https://repo.prefix.dev/cxxlibs", "conda-forge"]
+channels = ["conda-forge", "https://repo.prefix.dev/scns", "https://repo.prefix.dev/cxxlibs"]
+preview = ["pixi-build"]
 name = "reflect-cpp"
 platforms = ["linux-64"]
-version = "0.21.0"
+version = "0.27.1"
 
 [tasks]
+build = "pixi build --path conda.recipe/recipe.yaml --locked --output-dir output/linux-64"
+test = 'PREFIX="$CONDA_PREFIX" bash conda.recipe/tests/run.sh'
 
 [dependencies]
 cmake = "*"
@@ -15,13 +18,15 @@ clangxx = "*"
 rattler-build = "*"
 ccache = "*"
 pkg-config = ">=0.29.2,<0.30"
-ctre = ">=3.9.0,<4"
+ctre = ">=3.10.0,<4"
+enchantum = ">=0.5.0,<0.6"
+reflect-cpp = { path = "conda.recipe/recipe.yaml" }
+yyjson = ">=0.12.0,<0.13"
 msgpack-c = ">=6.1.0,<7"
 flatbuffers = ">=25.1.21,<26"
 libbson = ">=1.23.2,<2"
 pugixml = ">=1.15,<2"
 yaml-cpp = ">=0.8.0,<0.9"
-yyjson = ">=0.10.0,<0.11"
 tomlplusplus = ">=3.4.0,<4"
-pyarrow = ">=21.0.0,<22"
+pyarrow = ">=24.0.0,<25"
 
