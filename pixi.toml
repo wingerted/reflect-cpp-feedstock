@@ -1,6 +1,6 @@
 [workspace]
 authors = ["Wingerted <wingerted@gmail.com>"]
-channels = ["conda-forge", "https://repo.prefix.dev/scns", "https://repo.prefix.dev/cxxlibs"]
+channels = ["conda-forge", "https://repo.prefix.dev/cxxlibs"]
 preview = ["pixi-build"]
 name = "reflect-cpp"
 platforms = ["linux-64"]
@@ -21,7 +21,7 @@ pkg-config = ">=0.29.2,<0.30"
 ctre = ">=3.10.0,<4"
 enchantum = ">=0.5.0,<0.6"
 reflect-cpp = { path = "conda.recipe/recipe.yaml" }
-yyjson = ">=0.12.0,<0.13"
+yyjson = { version = ">=0.12.0,<0.13", channel = "https://repo.prefix.dev/cxxlibs" }
 msgpack-c = ">=6.1.0,<7"
 flatbuffers = ">=25.1.21,<26"
 libbson = ">=1.23.2,<2"

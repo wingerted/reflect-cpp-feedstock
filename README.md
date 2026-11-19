@@ -8,11 +8,11 @@ reflect-cpp is a modern C++ reflection library that provides runtime reflection 
 
 ## Installing with Pixi
 
-Use the following entries in your `pixi.toml` for Linux x86-64. Select `cxxlibs` explicitly for reflect-cpp so Pixi can resolve yyjson from `scns` while installing this build.
+Use the following entries in your `pixi.toml` to install the Linux x86-64 build from `cxxlibs`.
 
 ```toml
 [workspace]
-channels = ["conda-forge", "https://repo.prefix.dev/scns", "https://repo.prefix.dev/cxxlibs"]
+channels = ["conda-forge", "https://repo.prefix.dev/cxxlibs"]
 platforms = ["linux-64"]
 
 [dependencies]
@@ -31,7 +31,7 @@ pixi run test
 
 ## Dependencies
 
-Pixi installs CTRE from conda-forge, yyjson from the scns channel, and enchantum from cxxlibs. The build writes the reflect-cpp package to `output/linux-64/`. Use the same three channels when installing the binary package.
+Pixi installs CTRE from conda-forge and both yyjson and enchantum from cxxlibs. The build writes the reflect-cpp package to `output/linux-64/`.
 
 - ctre >=3.10.0,<4
 - enchantum >=0.5.0,<0.6

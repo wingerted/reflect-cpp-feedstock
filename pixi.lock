@@ -10,7 +10,6 @@ environments:
   default:
     channels:
     - url: https://conda.anaconda.org/conda-forge/
-    - url: https://repo.prefix.dev/scns/
     - url: https://repo.prefix.dev/cxxlibs/
     packages:
       linux-64:
@@ -80,7 +79,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libgomp-16.2.0-he0feb66_7.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libgoogle-cloud-3.12.0-h11de800_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libgoogle-cloud-storage-3.12.0-hc022eae_2.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/libgrpc-1.85.2-hcdf7605_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libgrpc-1.85.3-hcdf7605_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libhiredis-1.3.0-h5888daf_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libiconv-1.18-h0cb94f2_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libllvm23-23.1.6-h474f4eb_0.conda
@@ -109,7 +108,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libxml2-16-2.15.4-hf3af7cc_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libxml2-2.15.4-h7df9aa5_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libzlib-1.3.2-h25fd6f3_3.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/llvm-openmp-23.1.5-h7148c6a_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/llvm-openmp-23.1.6-h7148c6a_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/lz4-c-1.11.1-hee9eb32_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/msgpack-c-6.1.0-h0b85776_7.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.6-hdb14827_1.conda
@@ -147,8 +146,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/sysroot_linux-64-2.28-h4ee821c_9.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2026e-h5d301ff_0.conda
       - conda: https://repo.prefix.dev/cxxlibs/linux-64/enchantum-0.5.0-hb0f4dca_0.conda
-      - conda: https://repo.prefix.dev/scns/linux-64/yyjson-0.12.0-hcdab762_0.conda
-      - conda_source: reflect-cpp[a6fdd7eb] @ conda.recipe/recipe.yaml
+      - conda: https://repo.prefix.dev/cxxlibs/linux-64/yyjson-0.12.0-ha2c5090_0.conda
+      - conda_source: reflect-cpp[b1d341da] @ conda.recipe/recipe.yaml
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
   build_number: 20
@@ -1233,9 +1232,9 @@ packages:
     - libgoogle-cloud-storage >=3.12.0,<3.13.0a0
   size: 884546
   timestamp: 1793391542032
-- conda: https://conda.anaconda.org/conda-forge/linux-64/libgrpc-1.85.2-hcdf7605_0.conda
-  sha256: 49262baa1044753de2957d77f4118c34b41333ea4e1d970f8df9429434d6f175
-  md5: 257f22444dff14965a257f04da992df1
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libgrpc-1.85.3-hcdf7605_0.conda
+  sha256: 288048e9652e414884ddaec28cd43b5befca8c32439ddd6f2b81be63a751f951
+  md5: 7b03a7e925fbe48b1632d248ff0a52ee
   depends:
   - __glibc >=2.17,<3.0.a0
   - c-ares >=1.34.9,<2.0a0
@@ -1251,14 +1250,14 @@ packages:
   - openssl >=3.5.9,<4.0a0
   - re2
   constrains:
-  - grpc-cpp =1.85.2
+  - grpc-cpp =1.85.3
   license: Apache-2.0
   license_family: APACHE
   run_exports:
     weak:
-    - libgrpc >=1.85.2,<1.86.0a0
-  size: 7609414
-  timestamp: 1794529648819
+    - libgrpc >=1.85.3,<1.86.0a0
+  size: 7617465
+  timestamp: 1795046765794
 - conda: https://conda.anaconda.org/conda-forge/linux-64/libhiredis-1.3.0-h5888daf_1.conda
   sha256: 5638e321719590b00826d218431d5028d1a22a76f281532ce621d9a40d5e0f42
   md5: aa342fcf3bc583660dbfdb2eae6be48e
@@ -1671,23 +1670,22 @@ packages:
     - libzlib >=1.3.2,<2.0a0
   size: 63713
   timestamp: 1785362952714
-- conda: https://conda.anaconda.org/conda-forge/linux-64/llvm-openmp-23.1.5-h7148c6a_0.conda
-  sha256: f4b1e7295d81a34f604cc2a16d620cc39b3e190618f0df50a1c654bd59764dc8
-  md5: 9cce0e7f4ded5b077718d11f9ccb5fa3
+- conda: https://conda.anaconda.org/conda-forge/linux-64/llvm-openmp-23.1.6-h7148c6a_0.conda
+  sha256: 5fc94ed497a20960338062443deb22bff9b5a653b4d0650dfc53944de56692a8
+  md5: 877df5737d112b7e276884b5f333a925
   depends:
   - __glibc >=2.17,<3.0.a0
   constrains:
   - intel-openmp <0.0a0
-  - openmp 23.1.5|23.1.5.*
+  - openmp 23.1.6|23.1.6.*
   license: Apache-2.0 WITH LLVM-exception
-  license_family: APACHE
   run_exports:
     strong:
-    - llvm-openmp >=23.1.5
+    - llvm-openmp >=23.1.6
     - _openmp_mutex >=4.5
     - _openmp_mutex * *_llvm
-  size: 6118953
-  timestamp: 1793827614239
+  size: 6113259
+  timestamp: 1795041839949
 - conda: https://conda.anaconda.org/conda-forge/linux-64/lz4-c-1.11.1-hee9eb32_0.conda
   sha256: e66dc54f3f3547f1988dc3ef606f2790d7fde24037ffd0a19b4f58e2895f4183
   md5: abddcdd766eb50dd342df795364ce470
@@ -2181,26 +2179,22 @@ packages:
   run_exports: {}
   size: 32546
   timestamp: 1795022344224
-- conda: https://repo.prefix.dev/scns/linux-64/yyjson-0.12.0-hcdab762_0.conda
-  sha256: 3241229c4af52e499c35f9ffefce2c737c333216dc51284a06b52cdb44724468
-  md5: 0df5ebd2f7452c56ce9ce4a018b3d0e1
+- conda: https://repo.prefix.dev/cxxlibs/linux-64/yyjson-0.12.0-ha2c5090_0.conda
+  sha256: 61b202249c6190bb7a64ffe2326e040f6ef581e6520d30518f3afb42fc4bc593
+  md5: c5d161bb38cf782a6494f3d9be97a117
   depends:
-  - libgcc-ng >=11
-  - __glibc >=2.17,<3.0.a0
+  - libgcc >=16
   license: MIT
-  run_exports:
-    weak:
-    - yyjson >=0.12.0,<0.13.0a0
-  size: 163139
-  timestamp: 1785683234366
-- conda_source: reflect-cpp[a6fdd7eb] @ conda.recipe/recipe.yaml
+  run_exports: {}
+  size: 174189
+  timestamp: 1795060801413
+- conda_source: reflect-cpp[b1d341da] @ conda.recipe/recipe.yaml
   variants:
     target_platform: linux-64
   depends:
   - ctre >=3.10.0,<4
   - enchantum >=0.5.0,<0.6
   - yyjson >=0.12.0,<0.13
-  - yyjson >=0.12.0,<0.13.0a0
   - msgpack-c >=6.1.0,<7
   - flatbuffers >=25.1.21,<26
   - flatbuffers >=25.12.19,<25.12.20.0a0
@@ -2253,7 +2247,7 @@ packages:
   - conda: https://conda.anaconda.org/conda-forge/linux-64/libxml2-16-2.15.4-hf3af7cc_1.conda
   - conda: https://conda.anaconda.org/conda-forge/linux-64/libxml2-2.15.4-h7df9aa5_1.conda
   - conda: https://conda.anaconda.org/conda-forge/linux-64/libzlib-1.3.2-h25fd6f3_3.conda
-  - conda: https://conda.anaconda.org/conda-forge/linux-64/llvm-openmp-23.1.5-h7148c6a_0.conda
+  - conda: https://conda.anaconda.org/conda-forge/linux-64/llvm-openmp-23.1.6-h7148c6a_0.conda
   - conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.6-hdb14827_1.conda
   - conda: https://conda.anaconda.org/conda-forge/linux-64/ninja-1.13.2-h171cf75_1.conda
   - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-3.6.5-h781a0a9_0.conda
@@ -2319,7 +2313,7 @@ packages:
   - conda: https://conda.anaconda.org/conda-forge/linux-64/libgomp-16.2.0-he0feb66_7.conda
   - conda: https://conda.anaconda.org/conda-forge/linux-64/libgoogle-cloud-3.12.0-h11de800_2.conda
   - conda: https://conda.anaconda.org/conda-forge/linux-64/libgoogle-cloud-storage-3.12.0-hc022eae_2.conda
-  - conda: https://conda.anaconda.org/conda-forge/linux-64/libgrpc-1.85.2-hcdf7605_0.conda
+  - conda: https://conda.anaconda.org/conda-forge/linux-64/libgrpc-1.85.3-hcdf7605_0.conda
   - conda: https://conda.anaconda.org/conda-forge/linux-64/libiconv-1.18-h0cb94f2_3.conda
   - conda: https://conda.anaconda.org/conda-forge/linux-64/liblzma-5.8.3-hb03c661_1.conda
   - conda: https://conda.anaconda.org/conda-forge/linux-64/libmpdec-4.0.0-hb03c661_2.conda
@@ -2370,4 +2364,4 @@ packages:
   - conda: https://conda.anaconda.org/conda-forge/noarch/python_abi-3.13-9_cp313.conda
   - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2026e-h5d301ff_0.conda
   - conda: https://repo.prefix.dev/cxxlibs/linux-64/enchantum-0.5.0-hb0f4dca_0.conda
-  - conda: https://repo.prefix.dev/scns/linux-64/yyjson-0.12.0-hcdab762_0.conda
+  - conda: https://repo.prefix.dev/cxxlibs/linux-64/yyjson-0.12.0-ha2c5090_0.conda
